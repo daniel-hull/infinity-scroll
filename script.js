@@ -7,20 +7,31 @@ const count = 1;
 const apiKey = "wuuzISqj38jQpTQ91ZhHs9jWwuRjzE8nqcT4dQRcNpw";
 const apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&orientation=landscape`;
 
+// Helper function to set attributes on the created elements on the DOM - this condenses the code
+function setAttributes(element, attributes) {
+  for (const key in attributes) {
+    element.setAttribute(key, attributes[key]);
+  }
+}
+
 // Create HTML elements for links and photos and add it to the DOM
 function displayPhotos() {
   // Run this function for each object returned in photosArray
   photosArray.forEach((photo) => {
     // Create an <a> to link to Unsplash
     const item = document.createElement("a");
-    item.setAttribute("href", photo.links.html);
-    item.setAttribute("target", "_blank");
+
     // Create an <img> element to display the image
+    setAttributes(item, {
+      href: photo.links.html,
+      target: "_blank",
+    });
     const image = document.createElement("img");
-    image.setAttribute("src", photo.urls.regular);
-    image.setAttribute("alt", photo.alt_description);
-    image.setAttribute("title", photo.alt_description);
-    // Place image inside of anchor element so that it is clickable, and then place both image and anchor inside of image container element
+    setAttributes(image, {
+      src: photo.urls.regular,
+      alt: photo.alt_description,
+      title: photo.alt_description,
+    });
     item.appendChild(image);
     imageContainer.appendChild(item);
   });
