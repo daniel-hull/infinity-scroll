@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 40px;
+  z-index: 1;
+}
+
+/* Positioning our loader container */
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: -1;
+}
+
+/* Center the loading animation on the screen both horizontally and vertically  */
+#loader-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5rem;
+  width: auto;
+}
+
+/* Centering our image container */
+.image-container {
+  margin: 10px 25%;
+  margin-top: 20px;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+/* Media query to make the landing page mobile responsive */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .image-container {
+    margin: 10px 10px;
+  }
+}
